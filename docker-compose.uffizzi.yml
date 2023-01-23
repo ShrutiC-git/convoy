@@ -1,0 +1,93 @@
+version: "3"
+
+x-uffizzi:
+  ingress:
+    service: web
+    port: 8080
+
+services:
+    web:
+        image: "${CONVOY_IMAGE}"
+        volumes:
+            - ./uffizzi:/uffizzi:ro
+            # - ./compose:/compose
+        entrypoint: ["/cmd"]
+        command: [ "server", "--config", "./uffizzi/convoy-uffizzi.json" ]    
+        deploy:
+          resources:
+            limits:
+              memory: 1000M
+    
+    scheduler:
+        image: "${CONVOY_IMAGE}"
+        volumes:
+            - ./uffizzi:/uffizzi:ro
+        entrypoint: ["./cmd", "scheduler", "--config", "./uffizzi/convoy-uffizzi.json"]
+        deploy:
+          resources:
+            limits:
+              memory: 1000M
+
+    worker:
+        image: "${CONVOY_IMAGE}"
+        volumes:
+            - ./uffizzi:/uffizzi:ro
+        entrypoint: ["./cmd", "worker", "--config", "./uffizzi/convoy-uffizzi.json"]
+        deploy:
+          resources:
+            limits:
+              memory: 1000M
+    
+
+    mongo1:
+        image: mongo:latest
+        ports: 
+          - 27017:27017  
+        entrypoint:
+            [
+                "/usr/bin/mongod",
+                "--bind_ip",
+                "127.0.0.1",
+                "--replSet",
+                "myReplicaSet",
+                "--journal",
+                "--dbpath",
+                "/data/db",
+            ]
+        volumes:
+            - mongo1-data:/data/db
+        deploy:
+          resources:
+            limits:
+              memory: 2000M    
+
+    mongo2:
+        image: mongo:latest
+        ports: 
+          - 27019:27017
+        entrypoint:
+            [
+                "/usr/bin/mongod",
+                "--bind_ip",
+                "127.0.0.1",
+                "--port",
+                "27019",
+                "--replSet",
+                "myReplicaSet",
+                "--journal",
+                "--dbpath",
+                "/data/db",
+            ]
+        volumes:
+            - mongo2-data:/data/db
+        deploy:
+          resources:
+            limits:
+              memory: 2000M    
+
+    redis_server:
+        image: redis:alpine
+
+volumes:
+  mongo1-data:
+  mongo2-data:
