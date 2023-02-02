@@ -9,11 +9,7 @@ services:
     web:
         image: "${CONVOY_IMAGE}"
         entrypoint: [ "/bin/sh" ]
-        command: 
-          - "-c"
-          - "./cmd migrate up && \
-              ./cmd server --config convoy.json
-            "
+        command: [./"cmd", "server", "--config", "convoy.json"]
         volumes:
             - ./configs/local/start.sh:/start.sh
             - ./uffizzi/convoy-uffizzi.json:/convoy.json 
