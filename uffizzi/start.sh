@@ -1,3 +1,4 @@
 #!/bin/sh
 
-echo "HELLO"
+./cmd migrate up
+./cmd server --config ./uffizzi/convoy-uffizzi.json
