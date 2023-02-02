@@ -9,9 +9,9 @@ services:
     web:
         image: "${CONVOY_IMAGE}"
         entrypoint: [ "./cmd" ]
-        command: ["migrate up"]
+        command: ["server --config convoy-uffizzi.json"]
         volumes:
-            - ./convoy-uffizzi.json:/convoy-uffizzi.json   
+            - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
         deploy:
           resources:
             limits:
