@@ -9,9 +9,9 @@ services:
     web:
         image: "${CONVOY_IMAGE}"
         entrypoint: [ "/bin/sh" ]
-        command: ["./cmd server --config convoy-uffizzi.json"]
+        command: ["./cmd server --config ./uffizzi/convoy-uffizzi.json"]
         volumes:
-            - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
+            - ./uffizzi:/uffizzi:ro
         deploy:
           resources:
             limits:
