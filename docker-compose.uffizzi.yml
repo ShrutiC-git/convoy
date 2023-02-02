@@ -8,8 +8,8 @@ x-uffizzi:
 services:
     web:
         image: "${CONVOY_IMAGE}"
-        entrypoint: [ "./cmd" ]
-        command: ["server --config convoy-uffizzi.json"]
+        entrypoint: [ "/bin/sh" ]
+        command: ["./cmd server --config convoy-uffizzi.json"]
         volumes:
             - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
         deploy:
