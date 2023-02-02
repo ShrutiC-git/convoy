@@ -19,7 +19,7 @@ services:
         - PORT=8080
         - CONVOY_REQUIRE_AUTH=false
         - CONVOY_JWT_REALM_ENABLED=false
-        - CONVOY_NATIVE_REALM_ENABLED
+        - CONVOY_NATIVE_REALM_ENABLED=false
         volumes:
             - ./uffizzi:/uffizzi:ro
         deploy:
