@@ -13,7 +13,9 @@ services:
         # entrypoint: ["./cmd"]
         # command: ["migrate", "up", "--config", "./uffizzi/convoy-uffizzi.json"] 
         entrypoint: /bin/sh
-        command: /uffizzi/start.sh
+        command: 
+          - "-c"
+          - "./cmd migrate up"
         deploy:
           resources:
             limits:
