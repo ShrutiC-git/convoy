@@ -10,11 +10,18 @@ services:
         image: "${CONVOY_IMAGE}"
         entrypoint: ["/bin/sh"] 
         command: /uffizzi/start.sh
-        # entrypoint: ["./cmd", "server", "--config", "./uffizzi/convoy-uffizzi.json"] - no server error
-        # entrypoint: ["/bin/sh", "./cmd server --config ./uffizzi/convoy-uffizzi.json"]
+        environment:
+        - CONVOY_QUEUE_PROVIDER='redis'
+        - CONVOY_REDIS_DSN='redis://localhost:6379'
+        - CONVOY_DB_TYPE='mongo'
+        - CONVOY_DB_DSN='mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost'
+        - CONVOY_HOST='localhost'
+        - PORT=8080
+        - CONVOY_REQUIRE_AUTH=false
+        - CONVOY_JWT_REALM_ENABLED=false
+        - CONVOY_NATIVE_REALM_ENABLED
         volumes:
             - ./uffizzi:/uffizzi:ro
-            - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
         deploy:
           resources:
             limits:
