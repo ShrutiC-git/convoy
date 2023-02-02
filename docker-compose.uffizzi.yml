@@ -10,7 +10,9 @@ services:
         image: "${CONVOY_IMAGE}"
         volumes:
             - ./uffizzi:/uffizzi:ro
-        entrypoint: [/uffizzi/start.sh]
+        command: 
+        - "-c"
+        - "migrate up --config ./uffizzi/convoy-uffizzi.json"    
         deploy:
           resources:
             limits:
