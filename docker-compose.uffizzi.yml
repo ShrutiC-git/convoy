@@ -14,6 +14,7 @@ services:
         # entrypoint: ["/bin/sh", "./cmd server --config ./uffizzi/convoy-uffizzi.json"]
         volumes:
             - ./uffizzi:/uffizzi:ro
+            - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
         deploy:
           resources:
             limits:
