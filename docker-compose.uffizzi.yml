@@ -12,7 +12,7 @@ services:
         command: ["./cmd", "migrate", "up"]
         volumes:
             - ./configs/local/start.sh:/start.sh
-            - ./uffizzi/convoy-uffizzi.json:/convoy.json 
+            - ./uffizzi:/uffizzi:ro
         deploy:
           resources:
             limits:
