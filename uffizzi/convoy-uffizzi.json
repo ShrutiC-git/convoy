@@ -5,6 +5,7 @@
             "dsn": "redis://localhost:6379"
         }
     },
+    "host": "localhost:8080",
     "server": {
         "http": {
             "port": 8080
@@ -12,7 +13,7 @@
     },
     "database": {
         "type": "mongo",
-        "dsn": "mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=myReplicaSet&readPreference=primary&ssl=false"
+        "dsn": "mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost"
     },
     "auth": {
         "require_auth": true,

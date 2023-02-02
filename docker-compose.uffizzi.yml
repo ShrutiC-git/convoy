@@ -8,11 +8,11 @@ x-uffizzi:
 services:
     web:
         image: "${CONVOY_IMAGE}"
+        entrypoint: [ "/bin/sh" ]
+        command: /start.sh
         volumes:
-            - ./uffizzi:/uffizzi:ro
-            # - ./compose:/compose
-        entrypoint: ["/cmd"]
-        command: [ "server", "--config", "./uffizzi/convoy-uffizzi.json" ]    
+            - ./configs/local/start.sh:/start.sh
+            - ./uffizzi/convoy-uffizzi.json:/convoy.json 
         deploy:
           resources:
             limits:
@@ -37,53 +37,22 @@ services:
           resources:
             limits:
               memory: 1000M
-    
 
-    mongo1:
-        image: mongo:latest
-        ports: 
-          - 27017:27017  
-        entrypoint:
-            [
-                "/usr/bin/mongod",
-                "--bind_ip",
-                "127.0.0.1",
-                "--replSet",
-                "myReplicaSet",
-                "--journal",
-                "--dbpath",
-                "/data/db",
-            ]
-        volumes:
-            - mongo1-data:/data/db
-        deploy:
+    mongo:
+      image: mongo:5.0.14
+      command: "--replSet localhost"
+      ports: 
+        - "27017:27017"
+        - "27018:27018"
+        - "27019:27019"
+      deploy:
           resources:
             limits:
-              memory: 2000M    
-
-    mongo2:
-        image: mongo:latest
-        ports: 
-          - 27019:27017
-        entrypoint:
-            [
-                "/usr/bin/mongod",
-                "--bind_ip",
-                "127.0.0.1",
-                "--port",
-                "27019",
-                "--replSet",
-                "myReplicaSet",
-                "--journal",
-                "--dbpath",
-                "/data/db",
-            ]
-        volumes:
-            - mongo2-data:/data/db
-        deploy:
-          resources:
-            limits:
-              memory: 2000M    
+              memory: 1000M  
+   
+    mongosetup:
+        image: mongo:5.0.14
+        entrypoint: [ "bash", "-c", "sleep 10 && mongo --host localhost:27017 --eval 'rs.initiate()'"]     
 
     redis_server:
         image: redis:alpine
