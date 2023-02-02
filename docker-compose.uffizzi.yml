@@ -8,10 +8,9 @@ x-uffizzi:
 services:
     web:
         image: "${CONVOY_IMAGE}"
-        entrypoint: [ "/bin/sh" ]
-        command: /start.sh
+        entrypoint: [ "./cmd" ]
+        command: ["migrate up"]
         volumes:
-            - ./start.sh:/start.sh
             - ./convoy-uffizzi.json:/convoy-uffizzi.json   
         deploy:
           resources:
