@@ -25,7 +25,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 1000M
+              memory: 4000M
     
     scheduler:
         image: "${CONVOY_IMAGE}"
