@@ -8,11 +8,10 @@ x-uffizzi:
 services:
     web:
         image: "${CONVOY_IMAGE}"
-        entrypoint: [ "/bin/sh" ]
-        command: ["./cmd", "migrate", "up"]
         volumes:
-            - ./configs/local/start.sh:/start.sh
             - ./uffizzi:/uffizzi:ro
+        entrypoint: ["./cmd"]
+        command: ["migrate", "up"]    
         deploy:
           resources:
             limits:
