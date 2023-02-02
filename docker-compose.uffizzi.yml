@@ -12,12 +12,8 @@ services:
             - ./uffizzi:/uffizzi:ro
         # entrypoint: ["./cmd"]
         # command: ["migrate", "up", "--config", "./uffizzi/convoy-uffizzi.json"] 
-        entrypoint: [/bin/sh] 
-        command: 
-        - "-c"
-        - "./cmd migrate up && \ 
-          ./cmd server --config ./uffizzi/convoy-uffizzi.json
-          "
+        entrypoint: ["/bin/sh"] 
+        command: /uffizzi/start.sh
         deploy:
           resources:
             limits:
