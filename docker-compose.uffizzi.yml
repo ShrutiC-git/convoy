@@ -11,7 +11,7 @@ services:
         volumes:
             - ./uffizzi:/uffizzi:ro
         entrypoint: ["./cmd"]
-        command: ["migrate", "up"]    
+        command: ["migrate", "up", "--config", "./uffizzi/convoy-uffizzi.json"]    
         deploy:
           resources:
             limits:
