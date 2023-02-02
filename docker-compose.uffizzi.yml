@@ -11,7 +11,7 @@ services:
         volumes:
             - ./uffizzi:/uffizzi:ro
         command: 
-        - "migrate up --config ./uffizzi/convoy-uffizzi.json"    
+        - "migrate up"    
         deploy:
           resources:
             limits:
