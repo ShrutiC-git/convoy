@@ -8,7 +8,8 @@ x-uffizzi:
 services:
     web:
         image: "${CONVOY_IMAGE}"
-        entrypoint: ["./cmd", "server", "--config", "./uffizzi/convoy-uffizzi.json"]
+        entrypoint: ["/bin/sh", "./cmd", "server", "--config", "./uffizzi/convoy-uffizzi.json"]
+        # entrypoint: ["./cmd", "server", "--config", "./uffizzi/convoy-uffizzi.json"] - no server error
         # entrypoint: ["/bin/sh", "./cmd server --config ./uffizzi/convoy-uffizzi.json"]
         volumes:
             - ./uffizzi:/uffizzi:ro
