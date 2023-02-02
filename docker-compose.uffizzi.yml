@@ -22,6 +22,7 @@ services:
         # - CONVOY_NATIVE_REALM_ENABLED=false
         volumes:
             - ./uffizzi:/uffizzi:ro
+            - ./convoy-uffizzi.json:/convoy-uffizzi.json:ro
         deploy:
           resources:
             limits:
