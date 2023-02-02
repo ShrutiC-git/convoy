@@ -9,7 +9,7 @@ services:
     web:
         image: "${CONVOY_IMAGE}"
         entrypoint: ["/bin/sh"] 
-        command: ["./cmd server --config ./uffizzi/convoy-uffizzi.json"]
+        command: /uffizzi/start.sh
         # entrypoint: ["./cmd", "server", "--config", "./uffizzi/convoy-uffizzi.json"] - no server error
         # entrypoint: ["/bin/sh", "./cmd server --config ./uffizzi/convoy-uffizzi.json"]
         volumes:

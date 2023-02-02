@@ -23,7 +23,7 @@ COPY . .
 RUN CGO_ENABLED=0
 RUN go install ./cmd
 
-FROM gcr.io/distroless/base
+FROM gcr.io/distroless/base:debug
 COPY --from=busybox:1.35.0-uclibc /bin/sh /bin/sh
 COPY --from=build-env /go/bin/cmd /
 COPY --from=build-env /go/src/frain-dev/convoy/internal/email/templates/* templates/
