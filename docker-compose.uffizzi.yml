@@ -40,7 +40,7 @@ services:
 
     mongo:
       image: mongo:5.0.14
-      command: "--replSet localhost"
+      entrypoint: ["/usr/bin/mongod", "--replSet", "localhost"]
       ports: 
         - "27017:27017"
         - "27018:27018"
