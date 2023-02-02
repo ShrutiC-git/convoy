@@ -22,7 +22,7 @@ services:
         # - CONVOY_NATIVE_REALM_ENABLED=false
         volumes:
             - ./start.sh:/start.sh
-            - ./convoy-uffizzi.json:/convoy.json
+            - ./convoy-uffizzi.json:/convoy-uffizzi.json
         deploy:
           resources:
             limits:
