@@ -9,7 +9,7 @@ services:
     web:
         image: "${CONVOY_IMAGE}"
         entrypoint: ["/bin/sh"] 
-        command: /start.sh
+        command: /uffizzi/start.sh
         # environment:
         # - CONVOY_QUEUE_PROVIDER='redis'
         # - CONVOY_REDIS_DSN='redis://localhost:6379'
@@ -21,8 +21,8 @@ services:
         # - CONVOY_JWT_REALM_ENABLED=false
         # - CONVOY_NATIVE_REALM_ENABLED=false
         volumes:
-            - ./start.sh:/start.sh
-            - ./convoy-uffizzi.json:/convoy-uffizzi.json
+            - ./uffizzi:/uffizzi:ro
+            - ./uffizzi/config:/uffizzi/config:ro
         deploy:
           resources:
             limits:
