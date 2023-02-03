@@ -29,15 +29,14 @@
         "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
     "auth": {
-        "required": true,
-        "type": "basic",
+        "require_auth": true,
         "file": {
-            "basic": [
+            "api_key": [
                 {
-                    "username": "test",
-                    "password": "test",
+                    "api_key": "abc",
                     "role": {
-                        "type": "admin"
+                        "type": "admin",
+                        "project": ""
                     }
                 }
             ]
