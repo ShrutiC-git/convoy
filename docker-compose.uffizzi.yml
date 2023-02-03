@@ -23,6 +23,7 @@ services:
         volumes:
             - ./uffizzi:/uffizzi:ro
             - ./uffizzi/config:/uffizzi/config:ro
+            - ./convoy-uffizzi.json:/convoy.json
         deploy:
           resources:
             limits:
