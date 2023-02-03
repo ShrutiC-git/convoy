@@ -29,14 +29,24 @@
         "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
     "auth": {
-        "require_auth": true,
+        "jwt": {
+            "enabled": true
+        },
         "file": {
-            "api_key": [
+            "basic": [
                 {
-                    "api_key": "abc",
+                    "username": "test",
+                    "password": "test",
                     "role": {
-                        "type": "admin",
-                        "project": ""
+                        "type": "super_user"
+                    }
+                },
+                {
+                    "username": "test-group-filter",
+                    "password": "test-group-filter",
+                    "role": {
+                        "group": "abcdef",
+                        "type": "super_user"
                     }
                 }
             ]
