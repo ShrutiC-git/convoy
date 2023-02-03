@@ -24,7 +24,6 @@ services:
         # - CONVOY_NATIVE_REALM_ENABLED=false
         volumes:
             - ./uffizzi:/uffizzi:ro
-            - ./uffizzi/config:/uffizzi/config:ro
         deploy:
           resources:
             limits:
@@ -38,7 +37,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 1000M
+              memory: 4000M
 
     worker:
         image: "${CONVOY_IMAGE}"
@@ -48,7 +47,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 1000M
+              memory: 4000M
 
     mongo:
       image: mongo:5.0.14

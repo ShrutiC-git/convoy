@@ -6,8 +6,14 @@
         }
     },
     "host": "localhost:8080",
+    "logger": {
+        "level": "fatal"
+    },
     "server": {
         "http": {
+            "ssl": false,
+            "ssl_cert_file": "",
+            "ssl_key_file": "",
             "port": 8080
         }
     },
@@ -28,18 +34,6 @@
                     }
                 }
             ]
-        }
-    },
-    "group": {
-        "strategy": {
-            "type": "default",
-            "default": {
-                "intervalSeconds": 125,
-                "retryLimit": 15
-            }
-        },
-        "signature": {
-            "hash": "SHA256"
         }
     }
 }
