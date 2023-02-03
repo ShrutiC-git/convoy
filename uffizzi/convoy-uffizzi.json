@@ -29,6 +29,7 @@
         "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
     "auth": {
+        "required": true,
         "type": "basic",
         "file": {
             "basic": [
