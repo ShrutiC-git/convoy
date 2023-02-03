@@ -18,9 +18,6 @@
     },
     "server": {
         "http": {
-            "ssl": false,
-            "ssl_cert_file": "",
-            "ssl_key_file": "",
             "port": 5005
         }
     },
@@ -28,17 +25,23 @@
         "type": "mongo",
         "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
-    "group": {
-        "strategy": {
-            "type": "default",
-            "default": {
-                "intervalSeconds": 125,
-                "retryLimit": 15
-            }
+    "auth": {
+        "jwt": {
+            "enabled": true
         },
-        "signature": {
-            "header": "X-Company-Event-WebHook-Signature",
-            "hash": "SHA256"
+        "native": {
+            "enabled": true
+        },
+        "file": {
+            "basic": [
+                {
+                    "username": "test",
+                    "password": "test",
+                    "role": {
+                        "type": "super_user"
+                    }
+                }
+            ]
         }
     }
 }
