@@ -22,18 +22,11 @@
         "dsn": "mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost"
     },
     "auth": {
-        "require_auth": false,
-        "file": {
-            "basic": [
-                {
-                    "username": "123",
-                    "password": "abc",
-                    "role": {
-                        "type": "admin",
-                        "project": ""
-                    }
-                }
-            ]
+        "jwt": {
+            "enabled": true
+        },
+        "native": {
+            "enabled": true
         }
     }
 }
