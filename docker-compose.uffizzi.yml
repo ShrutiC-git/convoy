@@ -27,7 +27,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 2000M
+              memory: 1000M
 
     worker:
         image: "${CONVOY_IMAGE}"
@@ -57,11 +57,11 @@ services:
         deploy:
           resources:
             limits:
-              memory: 2000M   
+              memory: 1000M   
 
     redis_server:
         image: redis:alpine
         deploy:
           resources:
             limits:
-              memory: 2000M  
+              memory: 500M  

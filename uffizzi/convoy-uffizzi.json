@@ -13,6 +13,7 @@
         }
     },
     "host": "localhost:5005",
+    "base_url": "localhost:5005",
     "logger": {
         "level": "fatal"
     },
@@ -30,9 +31,6 @@
     },
     "auth": {
         "jwt": {
-            "enabled": true
-        },
-        "native": {
             "enabled": true
         },
         "file": {

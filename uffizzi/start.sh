@@ -1,5 +1,4 @@
 #!/bin/sh
-ls
-cat ./uffizzi/convoy-uffizzi.json
+cat ./uffizzi/convoy-uffizzi.json > convoy.json
 ./cmd migrate up
-# ./cmd server --config ./uffizzi/convoy-uffizzi.json
+./cmd server --config convoy.json
