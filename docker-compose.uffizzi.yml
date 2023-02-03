@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 x-uffizzi:
   ingress:
@@ -12,9 +12,8 @@ services:
         command: /uffizzi/start.sh
         ports:
         - "5005:5005"
-        configs:
-          - web_config_entrypoint
-          - web_config_json
+        volumes:
+            - ./uffizzi:/uffizzi
         deploy:
           resources:
             limits:
@@ -66,10 +65,3 @@ services:
           resources:
             limits:
               memory: 2000M  
-                           
-configs:
-  web_config_entrypoint:
-    file: ./uffizzi/start.sh
-  web_config_json:
-    file: ./uffizzi/convoy-uffizzi.json  
-                
