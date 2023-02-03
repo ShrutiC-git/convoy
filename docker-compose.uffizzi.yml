@@ -3,7 +3,7 @@ version: "3"
 x-uffizzi:
   ingress:
     service: web
-    port: 8080
+    port: 5005
 
 services:
     web:
@@ -11,14 +11,14 @@ services:
         entrypoint: ["/bin/sh"] 
         command: /uffizzi/start.sh
         ports:
-        - 8080:8080
+        - 5005:5005
         environment:
         # - CONVOY_QUEUE_PROVIDER='redis'
         # - CONVOY_REDIS_DSN='redis://localhost:6379'
         # - CONVOY_DB_TYPE='mongo'
         # - CONVOY_DB_DSN='mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost'
         - CONVOY_HOST='localhost'
-        - PORT=8080
+        - PORT=5005
         # - CONVOY_REQUIRE_AUTH=false
         # - CONVOY_JWT_REALM_ENABLED=false
         # - CONVOY_NATIVE_REALM_ENABLED=false
