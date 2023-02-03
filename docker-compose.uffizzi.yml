@@ -27,7 +27,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 500M
+              memory: 2000M
 
     worker:
         image: "${CONVOY_IMAGE}"
@@ -37,7 +37,7 @@ services:
         deploy:
           resources:
             limits:
-              memory: 1000M
+              memory: 2000M
 
     mongo:
       image: mongo:5.0.14
@@ -49,7 +49,7 @@ services:
       deploy:
           resources:
             limits:
-              memory: 1000M  
+              memory: 2000M  
    
     mongosetup:
         image: mongo:5.0.14
@@ -57,14 +57,14 @@ services:
         deploy:
           resources:
             limits:
-              memory: 1000M   
+              memory: 2000M   
 
     redis_server:
         image: redis:alpine
         deploy:
           resources:
             limits:
-              memory: 500M  
+              memory: 2000M  
 
 volumes:
   mongo1-data:

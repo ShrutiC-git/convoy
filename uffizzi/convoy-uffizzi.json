@@ -29,19 +29,14 @@
         "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
     "auth": {
-        "jwt": {
-            "enabled": false
-        },
-        "native": {
-            "enabled": false
-        },
+        "type": "basic",
         "file": {
             "basic": [
                 {
                     "username": "test",
                     "password": "test",
                     "role": {
-                        "type": "super_user"
+                        "type": "admin"
                     }
                 }
             ]
