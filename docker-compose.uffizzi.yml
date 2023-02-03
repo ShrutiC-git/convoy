@@ -13,7 +13,7 @@ services:
         ports:
         - "5005:5005"
         volumes:
-            - ./uffizzi:/uffizzi:ro
+            - ./uffizzi:/uffizzi:rw
         deploy:
           resources:
             limits:
@@ -22,7 +22,7 @@ services:
     scheduler:
         image: "${CONVOY_IMAGE}"
         volumes:
-            - ./uffizzi:/uffizzi:ro
+            - ./uffizzi:/uffizzi:rw
         entrypoint: ["./cmd", "scheduler", "--config", "./uffizzi/convoy-uffizzi.json"]
         deploy:
           resources:
@@ -32,7 +32,7 @@ services:
     worker:
         image: "${CONVOY_IMAGE}"
         volumes:
-            - ./uffizzi:/uffizzi:ro
+            - ./uffizzi:/uffizzi:rw
         entrypoint: ["./cmd", "worker", "--config", "./uffizzi/convoy-uffizzi.json"]
         deploy:
           resources:

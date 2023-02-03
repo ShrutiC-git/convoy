@@ -12,7 +12,7 @@
             "dsn": "redis://localhost:6379"
         }
     },
-    "host": "127.0.0.1:5005",
+    "host": "localhost:5005",
     "logger": {
         "level": "fatal"
     },
@@ -30,10 +30,21 @@
     },
     "auth": {
         "jwt": {
-            "enabled": false
+            "enabled": true
         },
         "native": {
-            "enabled": false
+            "enabled": true
+        },
+        "file": {
+            "basic": [
+                {
+                    "username": "test",
+                    "password": "test",
+                    "role": {
+                        "type": "super_user"
+                    }
+                }
+            ]
         }
     }
 }
