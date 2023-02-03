@@ -18,6 +18,9 @@
     },
     "server": {
         "http": {
+            "ssl": false,
+            "ssl_cert_file": "",
+            "ssl_key_file": "",
             "port": 5005
         }
     },
@@ -31,17 +34,6 @@
         },
         "native": {
             "enabled": true
-        },
-        "file": {
-            "basic": [
-                {
-                    "username": "test",
-                    "password": "test",
-                    "role": {
-                        "type": "super_user"
-                    }
-                }
-            ]
         }
     }
 }

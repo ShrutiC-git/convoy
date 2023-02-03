@@ -53,7 +53,7 @@ services:
    
     mongosetup:
         image: mongo:5.0.14
-        entrypoint: [ "bash", "-c", "sleep 20 && mongo --host 127.0.0.1:27017 --eval 'rs.initiate()'"]    
+        entrypoint: [ "bash", "-c", "sleep 10 && mongo --host 127.0.0.1:27017 --eval 'rs.initiate()'"]    
         deploy:
           resources:
             limits:
@@ -65,7 +65,3 @@ services:
           resources:
             limits:
               memory: 2000M  
-
-volumes:
-  mongo1-data:
-  mongo2-data:
