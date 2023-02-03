@@ -3,7 +3,7 @@ version: "3"
 x-uffizzi:
   ingress:
     service: web
-    port: 8080
+    port: 5005
 
 services:
     web:
@@ -11,7 +11,7 @@ services:
         entrypoint: ["/bin/sh"] 
         command: /uffizzi/start.sh
         ports:
-        - 8080:8080
+        - "5005:5005"
         volumes:
             - ./uffizzi:/uffizzi:ro
         deploy:

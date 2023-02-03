@@ -31,4 +31,3 @@ COPY --from=build-env /go/src/frain-dev/convoy/internal/email/templates/* templa
 ENTRYPOINT ["/cmd"]
 CMD [ "server", "--config", "convoy.json" ]
 
-EXPOSE 8080
