@@ -13,10 +13,8 @@ services:
         ports:
         - "5005:5005"
         configs:
-          - source: web-config-entrypoint
-            target: /uffizzi/start.sh
-          - source: web-config-json
-            target: /uffizzi/convoy-uffizzi.json
+          - source: web_config_entrypoint
+          - source: web_config_json
         deploy:
           resources:
             limits:
@@ -70,8 +68,8 @@ services:
               memory: 2000M  
                            
 configs:
-  web-config-entrypoint:
+  web_config_entrypoint:
     file: ./uffizzi/start.sh
-  web-config-json:
+  web_config_json:
     file: ./uffizzi/convoy-uffizzi.json  
                 
