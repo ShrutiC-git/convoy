@@ -34,6 +34,17 @@
         },
         "native": {
             "enabled": true
+        },
+        "file": {
+            "basic": [
+                {
+                    "username": "test",
+                    "password": "test",
+                    "role": {
+                        "type": "super_user"
+                    }
+                }
+            ]
         }
     }
 }
