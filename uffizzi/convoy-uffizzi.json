@@ -6,7 +6,7 @@
             "dsn": "redis://localhost:6379"
         }
     },
-    "host": "localhost:5005",
+    "host": "localhost:8080",
     "logger": {
         "level": "fatal"
     },
@@ -15,7 +15,7 @@
             "ssl": false,
             "ssl_cert_file": "",
             "ssl_key_file": "",
-            "port": 5005
+            "port": 8080
         }
     },
     "database": {
