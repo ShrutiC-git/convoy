@@ -10,13 +10,15 @@ services:
         image: "${CONVOY_IMAGE}"
         entrypoint: ["/bin/sh"] 
         command: /uffizzi/start.sh
-        # environment:
+        ports:
+        - 8080:8080
+        environment:
         # - CONVOY_QUEUE_PROVIDER='redis'
         # - CONVOY_REDIS_DSN='redis://localhost:6379'
         # - CONVOY_DB_TYPE='mongo'
         # - CONVOY_DB_DSN='mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost'
-        # - CONVOY_HOST='localhost'
-        # - PORT=8080
+        - CONVOY_HOST='localhost'
+        - PORT=8080
         # - CONVOY_REQUIRE_AUTH=false
         # - CONVOY_JWT_REALM_ENABLED=false
         # - CONVOY_NATIVE_REALM_ENABLED=false
