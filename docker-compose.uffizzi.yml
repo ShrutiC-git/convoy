@@ -13,7 +13,8 @@ services:
         ports:
         - "5005:5005"
         volumes:
-            - ./uffizzi:/uffizzi:rw
+            - ./uffizzi/start.sh:/uffizzi/start.sh:rw
+            - ./uffizzi/convoy-uffizzi.json:/uffizzi/convoy-uffizzi.json:rw
         deploy:
           resources:
             limits:
