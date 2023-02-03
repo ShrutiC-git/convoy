@@ -13,8 +13,8 @@ services:
         ports:
         - "5005:5005"
         configs:
-          - source: web_config_entrypoint
-          - source: web_config_json
+          - web_config_entrypoint
+          - web_config_json
         deploy:
           resources:
             limits:
