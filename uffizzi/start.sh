@@ -2,7 +2,6 @@
 ls
 cd uffizzi
 ls
-cp ./uffizzi/convoy-uffizzi.json .
-mv ./uffizzi/convoy-uffizzi.json convoy.json
+cat ./uffizzi/convoy-uffizzi.json
 ./cmd migrate up
 # ./cmd server --config ./uffizzi/convoy-uffizzi.json
