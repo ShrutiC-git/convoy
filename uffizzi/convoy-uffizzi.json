@@ -6,6 +6,12 @@
             "dsn": "redis://localhost:6379"
         }
     },
+    "cache": {
+        "type": "redis",
+        "redis": {
+            "dsn": "redis://localhost:6379"
+        }
+    },
     "host": "localhost:5005",
     "logger": {
         "level": "fatal"
@@ -20,7 +26,7 @@
     },
     "database": {
         "type": "mongo",
-        "dsn": "mongodb://127.0.0.1:27017,127.0.0.1:27019/convoy?replicaSet=localhost"
+        "dsn": "mongodb://127.0.0.1:27017/convoy?replicaSet=localhost"
     },
     "auth": {
         "jwt": {
